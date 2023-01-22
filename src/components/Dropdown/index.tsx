@@ -8,12 +8,21 @@ interface Props {
 }
 
 const Dropdown: Component<Props> = ({ value, onChange, className }) => {
+  console.log(value, "value received");
   return (
     <div class={className}>
       <select
-        onChange={(val) => onChange(val.currentTarget.value)}
-        value={value}
+        class="w-full border border-gray-200 rounded-md p-2"
+        onChange={(val) => {
+          val.currentTarget.value !== "Select" &&
+            onChange(val.currentTarget.value);
+        }}
+        value={
+          //number to string
+          value?.toString()
+        }
       >
+        <option>Select</option>
         {GPAscaleArray.map((gpa) => (
           <option value={gpa.grade}>
             {gpa.interval}/{gpa.letter}

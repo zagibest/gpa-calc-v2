@@ -7,7 +7,7 @@ export const calculateTermGPA = (term: Term) => {
   term.fields.forEach((field) => {
     if (field.credit && field.grade) {
       totalCredits += field.credit;
-      totalGrade += GPAscale[field.grade].grade * field.credit;
+      totalGrade += field.grade * field.credit;
     }
   });
   return Math.round((totalGrade / totalCredits) * 10) / 10;
@@ -18,13 +18,16 @@ export const calculateGPA = (
   prevCredit?: number,
   prevGrade?: number
 ) => {
-  let totalCredits = 0 + prevCredit;
-  let totalGrade = 0 + prevGrade;
+  let totalCredits = 0 + (prevCredit || 0);
+  let totalGrade = 0 + (prevGrade || 0);
   grade.terms.forEach((term) => {
-    const termGPA = calculateTermGPA(term);
-    totalCredits += term.fields.reduce((acc, field) => acc + field.credit, 0);
-    totalGrade +=
-      termGPA * term.fields.reduce((acc, field) => acc + field.credit, 0);
+    term.fields.forEach((field) => {
+      if (field.credit && field.grade) {
+        totalCredits += field.credit;
+        totalGrade += field.grade * field.credit;
+      }
+    });
   });
+  console.log(totalGrade, totalCredits);
   return Math.round((totalGrade / totalCredits) * 10) / 10;
 };
