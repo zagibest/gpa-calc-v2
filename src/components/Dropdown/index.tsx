@@ -1,25 +1,25 @@
 import { Component } from "solid-js";
-import { Listbox } from "@headlessui/react";
-import { GPAscale, GPAscaleArray, GPAscaleKeys } from "../../utils/constants";
+import { GPAscaleArray } from "../../utils/constants";
 
 interface Props {
   value: number;
-  onChange: (value: number) => void;
+  onChange: (value: string) => void;
+  className?: string;
 }
 
-const Dropdown: Component<Props> = ({ value, onChange }) => {
+const Dropdown: Component<Props> = ({ value, onChange, className }) => {
   return (
-    <div>
-      <Listbox value={value} onChange={onChange}>
-        <Listbox.Button>{value}</Listbox.Button>
-        <Listbox.Options>
-          {GPAscaleArray.map((gpa, i) => (
-            <Listbox.Option key={i} value={gpa.interval}>
-              {gpa.interval}
-            </Listbox.Option>
-          ))}
-        </Listbox.Options>
-      </Listbox>
+    <div class={className}>
+      <select
+        onChange={(val) => onChange(val.currentTarget.value)}
+        value={value}
+      >
+        {GPAscaleArray.map((gpa) => (
+          <option value={gpa.grade}>
+            {gpa.interval}/{gpa.letter}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

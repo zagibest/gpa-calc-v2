@@ -10,5 +10,5 @@ export interface Term {
 export interface Field {
   id: number;
   credit?: number;
-  grade?: string;
+  grade?: number;
 }
