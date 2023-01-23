@@ -3,12 +3,10 @@ export interface Grade {
 }
 
 export interface Term {
-  id: number;
   fields: Field[];
 }
 
 export interface Field {
-  id: number;
   credit?: number;
   grade?: number;
 }

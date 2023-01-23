@@ -1,30 +1,20 @@
 Arguments: 
-  /Users/zagismac/.nvm/versions/node/v16.14.0/bin/node /Users/zagismac/.nvm/versions/node/v16.14.0/bin/yarn add @tailwindcss@latest
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
 
 PATH: 
-  /Users/zagismac/.nvm/versions/node/v16.14.0/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/zagismac/.zsh/misc:/Users/zagismac/.nvm/versions/node/v16.14.0/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/zagismac/developer/flutter/bin:/Users/zagismac/developer/flutter/.pub-cache/bin:/Users/developer/flutter/bin/cache/dart-sdk/bin:/Users/zagismac/.pub-cache/bin:/Users/zagismac/developer/flutter/bin:/Users/zagismac/developer/flutter/.pub-cache/bin:/Users/developer/flutter/bin/cache/dart-sdk/bin:/Users/zagismac/developer/flutter/bin:/Users/zagismac/.pub-cache/bin
+  C:\Users\Fibo\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Fibo\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\GitExtensions;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\nodejs;C:\cmder;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\CMake\bin;C:\Users\Fibo\AppData\Local\Microsoft\WindowsApps;C:\Users\Fibo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Fibo\AppData\Local\Yarn\bin;C:\MinGW\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  16.14.0
+  17.1.0
 
 Platform: 
-  darwin x64
+  win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@tailwindcss: Request "https://registry.yarnpkg.com/@tailwindcss" returned a 405
-      at Request.params.callback [as _callback] (/Users/zagismac/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:66154:18)
-      at Request.self.callback (/Users/zagismac/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:140890:22)
-      at Request.emit (node:events:520:28)
-      at Request.<anonymous> (/Users/zagismac/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:141862:10)
-      at Request.emit (node:events:520:28)
-      at IncomingMessage.<anonymous> (/Users/zagismac/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:639:28)
-      at IncomingMessage.emit (node:events:532:35)
-      at endReadableNT (node:internal/streams/readable:1346:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Fibo\Desktop\personal\golch\node_modules\esbuild\esbuild.exe'
 
 npm manifest: 
   {
@@ -45,8 +35,8 @@ npm manifest:
       "vite-plugin-solid": "^2.0.0"
     },
     "dependencies": {
-      "@headlessui/react": "^1.7.7",
       "solid-app-router": "^0.0.50",
+      "solid-icons": "^1.0.4",
       "solid-js": "^1.0.0"
     }
   }
@@ -1191,6 +1181,11 @@ Lockfile:
     version "0.0.50"
     resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.0.50.tgz#8c5d1ddba936abe2bde3fcafb1b6e1c85b73ac2c"
     integrity sha512-TjaTCuvDeBEqTiIYcvGltM/Ae9y/qurOr5g47DvMdgR/8XiMhoktBH9weISXcxqb4KE4cVaaoAV+G+5tboEDEA==
+  
+  solid-icons@^1.0.4:
+    version "1.0.4"
+    resolved "https://registry.yarnpkg.com/solid-icons/-/solid-icons-1.0.4.tgz#13eb122fe927110e2463c96d226492fb837a9802"
+    integrity sha512-gJTp4in3+OYCs9WvDkSLt4Los2unR3Uoder8wjh15GsfP20xiNOLfPTJllXmn+fI8+k3x7bRYtLGIgWd9fUQug==
   
   solid-js@^1.0.0:
     version "1.0.0"

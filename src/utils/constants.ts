@@ -63,18 +63,7 @@ export const GPAscaleArray = Object.values(GPAscale);
 export const initialGrade = {
   terms: [
     {
-      id: 1,
-      fields: [
-        {
-          id: 1,
-        },
-        {
-          id: 2,
-        },
-        {
-          id: 3,
-        },
-      ],
+      fields: [{}, {}, {}],
     },
   ],
 };
