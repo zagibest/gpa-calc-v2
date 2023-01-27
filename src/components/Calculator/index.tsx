@@ -39,8 +39,8 @@ const Calculator: Component = () => {
   return (
     <div class="w-full relative">
       {/* <h1 class="text-xl font-bold">Голч</h1> */}
-      <div class="w-full flex gap-5 relative">
-        <div class="grid gap-4 bg-white shadow p-4 rounded-lg flex-1">
+      <div class="w-full grid grid-cols-3 gap-5 relative">
+        <div class="grid gap-4 bg-white shadow p-4 rounded-lg md:col-span-2 col-span-3">
           <For each={userGPA().terms}>
             {(term, index) => (
               <div>
@@ -178,7 +178,7 @@ const Calculator: Component = () => {
             )}
           </For>
         </div>
-        <div class="w-full bg-white shadow rounded-lg p-4 flex-1 max-h-48 sticky top-10 left-0">
+        <div class="w-full bg-white shadow rounded-lg p-4 md:col-span-1 col-span-3 max-h-[14rem] sticky top-10 left-0">
           <div class="w-full flex justify-center items-center">
             <div class="p-4 bg-green-500 text-white rounded-full font-bold text-4xl h-32 w-32 flex justify-center items-center border-2 border-gray-200">
               <div class='flex justify-center items-center flex-col'>
@@ -189,7 +189,7 @@ const Calculator: Component = () => {
           </div>
          <div>
           <button
-              class="bg-green-500 text-white py-2 px-3 rounded-lg flex items-center gap-2"
+              class="hover:bg-green-500 hover:text-white py-2 px-3 rounded-lg gap-2 text-gray-500 bg-gray-200 w-full flex justify-center items-center mt-4"
               onClick={() => addTerm()}
             >
               Улирал нэмэх <FaRegularSquarePlus size={18} />
