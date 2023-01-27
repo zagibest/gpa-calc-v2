@@ -17,7 +17,6 @@ const routes = [
 const App: Component = () => {
   return (
     <Router routes={routes}>
-      <Nav />
       <Route />
     </Router>
   );
