@@ -1,4 +1,4 @@
-import { FaRegularSquarePlus, FaRegularTrashCan } from "solid-icons/fa";
+import { FaRegularSquarePlus, FaRegularTrashCan, FaRegularRectangleXmark } from "solid-icons/fa";
 import {
   Component,
   createEffect,
@@ -37,7 +37,7 @@ const Calculator: Component = () => {
   };
 
   return (
-    <div class="w-full">
+    <div class="w-full relative">
       {/* <h1 class="text-xl font-bold">Голч</h1> */}
       <div class="w-full flex gap-5 relative">
         <div class="grid gap-4 bg-white shadow p-4 rounded-lg flex-1">
@@ -48,9 +48,32 @@ const Calculator: Component = () => {
                   <h2 class=" text-2xl font-bold mb-4">
                     Семестр {index() + 1}
                   </h2>
-
+              <div class="grid grid-cols-2 gap-2">
+              <button
+                    class="hover:bg-green-500 hover:text-white py-2 px-3 rounded-lg flex items-center gap-2 text-gray-500 bg-gray-200"
+                    onClick={() => {
+                      const newGPA = {
+                        ...userGPA(),
+                        terms: userGPA().terms.map((term, idx) => {
+                          if (idx === index())
+                            return {
+                              ...term,
+                              fields: [
+                                ...term.fields,
+                                {
+                                },
+                              ],
+                            };
+                          return term;
+                        }),
+                      };
+                      setUserGPA(newGPA);
+                    }}
+                  >
+                    <FaRegularSquarePlus size={18} />
+                  </button>
                   <button
-                    class="col-span-1 bg-red-500 text-white rounded-md p-2"
+                    class="col-span-1 hover:bg-red-500 hover:text-white rounded-md p-2 text-gray-500 bg-gray-200"
                     onClick={() => {
                       const newGPA = {
                         ...userGPA(),
@@ -61,8 +84,10 @@ const Calculator: Component = () => {
                       setUserGPA(newGPA);
                     }}
                   >
-                    <FaRegularTrashCan class="mx-auto" />
+                    <FaRegularRectangleXmark class="mx-auto" />
                   </button>
+              </div>
+                  
                 </div>
                 <div class="grid gap-4">
                   <For each={term.fields}>
@@ -82,7 +107,7 @@ const Calculator: Component = () => {
                                       if (ind === i())
                                         return {
                                           ...field,
-                                          grade: parseInt(val),
+                                          grade: val,
                                         };
                                       return field;
                                     }),
@@ -123,7 +148,7 @@ const Calculator: Component = () => {
                           class="w-full border border-gray-200"
                         />
                         <button
-                          class="col-span-1 bg-red-500 text-white rounded-md"
+                          class="col-span-1 hover:bg-red-500 hover:text-white rounded-md text-gray-500 bg-gray-200"
                           onClick={() => {
                             const newGPA = {
                               ...userGPA(),
@@ -147,46 +172,29 @@ const Calculator: Component = () => {
                     )}
                   </For>
                 </div>
-                <div>
-                  <button
-                    class="bg-green-500 text-white py-2 px-3 rounded-lg flex items-center gap-2"
-                    onClick={() => {
-                      const newGPA = {
-                        ...userGPA(),
-                        terms: userGPA().terms.map((term, idx) => {
-                          if (idx === index())
-                            return {
-                              ...term,
-                              fields: [
-                                ...term.fields,
-                                {
-                                  grade: 0,
-                                  credit: 0,
-                                },
-                              ],
-                            };
-                          return term;
-                        }),
-                      };
-                      setUserGPA(newGPA);
-                    }}
-                  >
-                    Хичээл нэмэх <FaRegularSquarePlus size={18} />
-                  </button>
-                </div>
+                <div class="border-t border-t-gray-200 my-4 w-full" />
+                
               </div>
             )}
           </For>
         </div>
-        <div class="w-full bg-white shadow rounded-lg p-4 sticky flex-1 max-h-64">
-          <h2 class="font-bold text-2xl">Нийт голч</h2>
-          <p>{studentGPA() && studentGPA()}</p>
+        <div class="w-full bg-white shadow rounded-lg p-4 flex-1 max-h-48 sticky top-10 left-0">
+          <div class="w-full flex justify-center items-center">
+            <div class="p-4 bg-green-500 text-white rounded-full font-bold text-4xl h-32 w-32 flex justify-center items-center border-2 border-gray-200">
+              <div class='flex justify-center items-center flex-col'>
+                <h2 class="font-bold text-sm">Нийт голч</h2>
+                <p>{studentGPA() ? studentGPA() : " "}</p>
+              </div>
+            </div> 
+          </div>
+         <div>
           <button
-            class="bg-green-500 text-white py-2 px-3 rounded-lg flex items-center gap-2"
-            onClick={() => addTerm()}
-          >
-            Улирал нэмэх <FaRegularSquarePlus size={18} />
-          </button>
+              class="bg-green-500 text-white py-2 px-3 rounded-lg flex items-center gap-2"
+              onClick={() => addTerm()}
+            >
+              Улирал нэмэх <FaRegularSquarePlus size={18} />
+            </button>
+         </div>
         </div>
       </div>
     </div>

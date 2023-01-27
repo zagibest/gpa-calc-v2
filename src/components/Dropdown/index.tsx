@@ -3,28 +3,26 @@ import { GPAscaleArray } from "../../utils/constants";
 
 interface Props {
   value: number;
-  onChange: (value: string) => void;
+  onChange: (value: number) => void;
   className?: string;
 }
 
 const Dropdown: Component<Props> = ({ value, onChange, className }) => {
-  console.log(value, "value received");
+  console.log(GPAscaleArray, "array");
   return (
     <div class={className}>
       <select
         class="w-full border border-gray-200 rounded-md p-2"
         onChange={(val) => {
-          val.currentTarget.value !== "Select" &&
-            onChange(val.currentTarget.value);
+          const grade = GPAscaleArray.find((e) => e.interval === val.currentTarget.value).grade;
+          grade ? onChange(grade) : onChange(undefined);
         }}
         value={
-          //number to string
-          value?.toString()
+          GPAscaleArray.find((e) => e.grade === value)?.interval
         }
       >
-        <option>Select</option>
         {GPAscaleArray.map((gpa) => (
-          <option value={gpa.grade}>
+          <option value={gpa.interval} >
             {gpa.interval}/{gpa.letter}
           </option>
         ))}
